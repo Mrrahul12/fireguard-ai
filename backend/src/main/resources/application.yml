@@ -8,3 +8,11 @@ app:
 spring:
   application:
     name: fireguard-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:${POSTGRES_PORT:5432}/${POSTGRES_DB:fireguard}}
+    username: ${SPRING_DATASOURCE_USERNAME:${POSTGRES_USER:fireguard}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${POSTGRES_PASSWORD:fireguard}}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
